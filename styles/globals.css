@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.tuit-card {
+  border-radius: 20px;
+  background-color: rgb(225, 225, 225);
+  padding: 20px;
+  margin: 10px;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+.tuit-card__text {
+  font-size: 20px;
+}
+.tuit-card__date,
+.tuit-card__likes {
+  font-size: 14px;
+}
