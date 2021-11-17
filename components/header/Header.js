@@ -8,7 +8,7 @@ const Header = () => (
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Link href="/tuits" passHref>
+          <Link href="/" passHref>
             <NavLink>All Tuits</NavLink>
           </Link>
           <Link href="/createtuit" passHref>
