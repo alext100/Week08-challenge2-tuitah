@@ -14,7 +14,7 @@ export default function Home({ tuits }) {
   };
 
   const clickLike = async (tuit) => {
-    await axios.patch(`https://tiuter.herokuapp.com/tuits/patch`, {
+    await axios.patch(`https://tiuter.herokuapp.com/tuits/like`, {
       id: tuit.id,
     });
 
