@@ -5,7 +5,7 @@ import styles from "../../styles/TuitCard.module.css";
 
 TimeAgo.addLocale(es);
 
-const TuitCard = ({ tuit }) => (
+const TuitCard = ({ tuit, onDelete }) => (
   <>
     <article
       className={`${styles["tuit-card"]} col-md-5 col-12 row justify-content-center`}
@@ -23,12 +23,15 @@ const TuitCard = ({ tuit }) => (
         <button type="button" className="btn btn-dark col-md-6 col-12">
           Like
         </button>
-        <button type="button" className="btn btn-danger col-md-6 col-12">
+        <button
+          type="button"
+          className="btn btn-danger col-md-6 col-12"
+          onClick={() => onDelete(tuit.id)}
+        >
           Delete
         </button>
       </div>
     </article>
   </>
 );
-
 export default TuitCard;
