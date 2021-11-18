@@ -13,10 +13,16 @@ export default function Home({ tuits }) {
         </Head>
         <div className={styles.container}>
           <section className="section-tuits row justify-content-around">
-            {tuits.map((tuit) => (
-              // eslint-disable-next-line no-underscore-dangle
-              <TuitCard key={tuit._id} tuit={tuit} />
-            ))}
+            {tuits
+              .sort((a, b) => {
+                const c = new Date(a.date);
+                const d = new Date(b.date);
+                return d - c;
+              })
+              .map((tuit) => (
+                // eslint-disable-next-line no-underscore-dangle
+                <TuitCard key={tuit._id} tuit={tuit} />
+              ))}
           </section>
         </div>
       </div>

@@ -1,11 +1,8 @@
 import "./TuitCard.module.css";
 import TimeAgo from "javascript-time-ago";
-
-import en from "javascript-time-ago/locale/en.json";
 import es from "javascript-time-ago/locale/es.json";
 import ReactTimeAgo from "react-time-ago";
 
-TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(es);
 
 const TuitCard = ({ tuit }) => (
@@ -14,7 +11,7 @@ const TuitCard = ({ tuit }) => (
       <div className="col-12 row">
         <p className="tuit-card__text col-12">{tuit.text}</p>
         <p className="tuit-card__date col-md-9 col-12">
-          <ReactTimeAgo date={tuit.date} locale="es" />
+          <ReactTimeAgo date={Date.parse(tuit.date)} locale="es" />
         </p>
         <p className="tuit-card__likes col-md-3 col-12">Likes: {tuit.likes}</p>
       </div>
