@@ -12,6 +12,22 @@ export default function Home({ tuits }) {
     const freshTuitsList = tuitsData.filter((freshTuit) => freshTuit.id !== id);
     setTuitsData(freshTuitsList);
   };
+
+  const clickLike = async (tuit) => {
+    await axios.patch(`https://tiuter.herokuapp.com/tuits/patch`, {
+      id: tuit.id,
+    });
+
+    const newTuitData = tuitsData.map((tuitData) => {
+      if (tuit.id === tuitData.id) {
+        tuitData.likes += 1;
+        return { ...tuitData };
+      }
+      return tuitData;
+    });
+
+    setTuitsData(newTuitData);
+  };
   return (
     <>
       <div className={styles.container}>
@@ -30,7 +46,12 @@ export default function Home({ tuits }) {
               })
               .map((tuit) => (
                 // eslint-disable-next-line no-underscore-dangle
-                <TuitCard key={tuit.id} tuit={tuit} onDelete={onDelete} />
+                <TuitCard
+                  key={tuit.id}
+                  tuit={tuit}
+                  onDelete={onDelete}
+                  clickLike={clickLike}
+                />
               ))}
           </section>
         </div>

@@ -18,7 +18,7 @@ exports[`Given a TuitCard component When it's rendered Then it should show match
       <time
         dateTime="2021-11-18T17:09:24.499Z"
       >
-        hace 6 minutos
+        hace 4 horas
       </time>
     </p>
     <p
@@ -33,12 +33,14 @@ exports[`Given a TuitCard component When it's rendered Then it should show match
   >
     <button
       className="btn btn-dark col-md-6 col-12"
+      onClick={[Function]}
       type="button"
     >
       Like
     </button>
     <button
       className="btn btn-danger col-md-6 col-12"
+      onClick={[Function]}
       type="button"
     >
       Delete
