@@ -1,6 +1,7 @@
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es.json";
 import ReactTimeAgo from "react-time-ago";
+import PropTypes from "prop-types";
 import styles from "../../styles/TuitCard.module.css";
 
 TimeAgo.addLocale(es);
@@ -34,4 +35,13 @@ const TuitCard = ({ tuit, onDelete }) => (
     </article>
   </>
 );
+
+TuitCard.propTypes = {
+  tuit: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
+};
+
 export default TuitCard;
