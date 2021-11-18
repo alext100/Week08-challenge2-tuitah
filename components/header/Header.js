@@ -4,7 +4,9 @@ import Link from "next/link";
 const Header = () => (
   <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
     <Container>
-      <Navbar.Brand href="/">Tiutah</Navbar.Brand>
+      <Link href="/" passHref>
+        <Navbar.Brand>Tiutah</Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
