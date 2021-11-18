@@ -1,8 +1,17 @@
+import axios from "axios";
 import Head from "next/head";
+import { useState } from "react";
 import TuitCard from "../components/TuitCard/TuitCard";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ tuits }) {
+  const [tuitsData, setTuitsData] = useState(tuits);
+
+  const onDelete = async (id) => {
+    await axios.delete(`https://tiuter.herokuapp.com/tuits/delete/${id}`);
+    const freshTuitsList = tuitsData.filter((freshTuit) => freshTuit.id !== id);
+    setTuitsData(freshTuitsList);
+  };
   return (
     <>
       <div className={styles.container}>
@@ -13,7 +22,7 @@ export default function Home({ tuits }) {
         </Head>
         <div className={styles.container}>
           <section className="section-tuits row justify-content-around">
-            {tuits
+            {tuitsData
               .sort((a, b) => {
                 const c = new Date(a.date);
                 const d = new Date(b.date);
@@ -21,7 +30,7 @@ export default function Home({ tuits }) {
               })
               .map((tuit) => (
                 // eslint-disable-next-line no-underscore-dangle
-                <TuitCard key={tuit._id} tuit={tuit} />
+                <TuitCard key={tuit.id} tuit={tuit} onDelete={onDelete} />
               ))}
           </section>
         </div>
